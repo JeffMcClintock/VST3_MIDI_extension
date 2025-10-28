@@ -5,9 +5,22 @@ The VST MIDI UMP extension allows a VST3 plugin to receive MIDI events.
 
 Both the MIDI 1.0 or MIDI 2.0 protocol is supported (the plugin can choose).
 
+## Why?
+
+MIDI is *the* standard for communication of musical performances between DAWs and instruments. Yet plugin APIs like VST3 provide their own proprietary equivalents, this situation creates extra costs and effort for plugin developers who end up having to support mutiple competing 'note' standards.
+There was a valid reason for this in the past, as MIDI 1.0 was limited in its capabilities. However, with the introduction of MIDI 2.0 and UMP (Universal MIDI Packet) messages, MIDI has evolved to meet modern musical needs like per-note controllers.
+
+Secondly, MIDI provides a simpler and less burdensome mechanism for supporting continuous controllers (CCs) in a musical performance. There is nothing wrong with VSTs ability to have the host map CCs to parameters for the purpose of automating that parameter, it’s a great feature. But the need to create hundreds a ‘fake’ parameters for the purpose of supporting musical CCs like mod-wheel etc become a real pain-point. Esp. with MPE, and esp when a DAWs presents a confusing list of all those ‘accidental’ parameters to the user.
+
+## What about MIDI-CI? (Capabilities Inquiry)
+This extension does not cover MIDI-CI, which is a separate standard for querying and negotiating capabilities between devices. MIDI-CI requires two-way communication between devices and therefore is best performed off-line outside of a real-time context.
+MIDI-CI is proably best supported by some other additional mechanism.
+
 ## Credits
 Based on the VST3 SDK provided by Steinberg Media Technologies.
+
 Thanks to reuk on the JUCE forum for the initial idea.
+
 Thanks to Jeff McClintock for typing it up and testing it.
 
 ## How to use
