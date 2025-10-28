@@ -3,7 +3,7 @@ Support for MIDI in the VST3 Plugin API
 
 The VST MIDI UMP extension allows a VST3 plugin to receive MIDI events.
 
-Both MIDI 1.0 or MIDI 2.0 protocol is supported (the plugin can choose).
+Both the MIDI 1.0 or MIDI 2.0 protocol is supported (the plugin can choose).
 
 ## Credits
 Based on the VST3 SDK provided by Steinberg Media Technologies.
@@ -12,10 +12,10 @@ Thanks to Jeff McClintock for typing it up and testing it.
 
 ## How to use
 
-Add the contents of this repo to you plugin project.
-Ensure the 2 header files are in the projects include paths.
+Add the contents of this repo to your plugin project.
+Ensure the 2 header files are in the project's include paths.
 
-Implement the IProcessMidiProtocol interface in you Processor class:
+Implement the IProcessMidiProtocol interface in your Processor class:
 
 ```cpp
 #include "ivstmidiump.h"
@@ -99,7 +99,7 @@ tresult PLUGIN_API MyProcessor::process(ProcessData& data)
 
 #Hosting support
 
-Assuming you DAW has a pointer to the plugin instance. e.g.
+Assuming your DAW has a pointer to the plugin instance. e.g.
 
 ```cpp
 Steinberg::Vst::IAudioProcessor* vstEffect_; // your plugin processor instance
@@ -156,5 +156,6 @@ auto& midi2event = *reinterpret_cast<Steinberg::Vst::kUMPEvent*>(&m.noteOn);
 memcpy(&midi2event.words, &wrappedMidi_1_0_message, sizeof(wrappedMidi_1_0_message));
 ```
 and transfer the event as per usual.
+
 
 
