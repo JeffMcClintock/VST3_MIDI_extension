@@ -5,7 +5,7 @@ The VST MIDI UMP extension allows a VST3 plugin to receive MIDI events.
 
 Both MIDI 1.0 or MIDI 2.0 protocol is supported (the plugin can choose).
 
-##credits
+## Credits
 Based on the VST3 SDK provided by Steinberg Media Technologies.
 Thanks to reuk on the JUCE forum for the initial idea.
 Thanks to Jeff McClintock for typing it up and testing it.
@@ -156,4 +156,5 @@ auto& midi2event = *reinterpret_cast<Steinberg::Vst::kUMPEvent*>(&m.noteOn);
 memcpy(&midi2event.words, &wrappedMidi_1_0_message, sizeof(wrappedMidi_1_0_message));
 ```
 and transfer the event as per usual.
+
 
