@@ -110,7 +110,7 @@ tresult PLUGIN_API MyProcessor::process(ProcessData& data)
     //...
 ```
 
-#Hosting support
+## Hosting support
 
 Assuming your DAW has a pointer to the plugin instance. e.g.
 
